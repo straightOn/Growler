@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cedsp4k58ycra"]
+
+[ext_resource type="Texture2D" uid="uid://dddpk3g2ooup5" path="res://bg.png" id="1_pgynr"]
+
+[node name="Background" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(6400, 6400)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+offset_right = 6400.0
+offset_bottom = 6400.0
+texture = ExtResource("1_pgynr")
+stretch_mode = 1

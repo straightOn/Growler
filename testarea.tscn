@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://k8jg73h5nnu3"]
+
+[ext_resource type="Script" path="res://testarea.gd" id="1_0lypx"]
+[ext_resource type="PackedScene" uid="uid://mw5dwnaj57pb" path="res://player.tscn" id="1_86nuj"]
+[ext_resource type="PackedScene" uid="uid://cedsp4k58ycra" path="res://background.tscn" id="3_m7wdr"]
+[ext_resource type="PackedScene" uid="uid://bvjrcd5aqudlp" path="res://collectable.tscn" id="4_vddh8"]
+
+[sub_resource type="Environment" id="Environment_2ncof"]
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.0
+glow_strength = 0.9
+glow_blend_mode = 0
+glow_hdr_threshold = 0.2
+
+[node name="Testarea" type="Node2D"]
+script = ExtResource("1_0lypx")
+
+[node name="Player" parent="." instance=ExtResource("1_86nuj")]
+unique_name_in_owner = true
+current_length = 50
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2ncof")
+
+[node name="Background" parent="." instance=ExtResource("3_m7wdr")]
+
+[node name="Collectable" parent="." instance=ExtResource("4_vddh8")]
+position = Vector2(184, 264)

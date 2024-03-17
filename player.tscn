@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://mw5dwnaj57pb"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_2bk3n"]
+[ext_resource type="Script" path="res://head.gd" id="2_buhcx"]
+
+[sub_resource type="Curve" id="Curve_gfq0i"]
+_data = [Vector2(0, 0.269184), 0.0, 0.0, 0, 0, Vector2(0.209302, 0.567911), 0.672138, 0.672138, 0, 0, Vector2(0.800664, 0.754616), 0.481699, 0.481699, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_vtsco"]
+colors = PackedColorArray(1, 1, 1, 0.431373, 1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wndwf"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_2bk3n")
+
+[node name="Tail" type="Line2D" parent="."]
+unique_name_in_owner = true
+width = 18.0
+width_curve = SubResource("Curve_gfq0i")
+gradient = SubResource("Gradient_vtsco")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 1
+
+[node name="Head" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -1)
+motion_mode = 1
+script = ExtResource("2_buhcx")
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Head"]
+shape = SubResource("RectangleShape2D_wndwf")
+
+[node name="HeadPolygon" type="Polygon2D" parent="Head"]
+polygon = PackedVector2Array(10, -10, -10, -10, -10, 10, 10, 10)
+
+[node name="Camera" type="Camera2D" parent="Head"]
+unique_name_in_owner = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true

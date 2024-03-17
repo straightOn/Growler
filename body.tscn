@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://rbok3ukhcnno"]
+
+[ext_resource type="Script" path="res://body.gd" id="1_j0wl8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxw1x"]
+
+[node name="Body" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_j0wl8")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 4, 10, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pxw1x")
